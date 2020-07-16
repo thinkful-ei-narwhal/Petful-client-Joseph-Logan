@@ -8,7 +8,7 @@ export default class Adoption extends Component {
     error: null
   }
   componentDidMount() {
-    fetch(`http://localhost:8000/api/pets`)
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -21,7 +21,7 @@ export default class Adoption extends Component {
   }
 
   componentDidUpdate() {
-    fetch(`http://localhost:8000/api/pets`)
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)

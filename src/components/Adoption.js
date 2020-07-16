@@ -1,9 +1,7 @@
 import React from 'react';
-import AdoptionWindow from './AdoptionWindow';
 import AdoptionForm from './AdoptionForm';
 import PeopleItem from './PeopleItem';
 import People from './People'
-import Loading from './loading';
 export default class Adoption extends React.Component {
 
   //go to server, make sure we requeue what we dequque
@@ -35,7 +33,7 @@ export default class Adoption extends React.Component {
 
   componentDidMount() {
 
-    fetch(`http://localhost:8000/api/people`)
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -44,7 +42,7 @@ export default class Adoption extends React.Component {
       .catch(error => console.log(error))
 
 
-    fetch(`http://localhost:8000/api/pets/dogs`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/dogs`, {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -55,7 +53,7 @@ export default class Adoption extends React.Component {
       .catch(error => console.log(error))
 
 
-    fetch(`http://localhost:8000/api/pets/cats`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/cats`, {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -74,7 +72,7 @@ export default class Adoption extends React.Component {
         this.interval = setInterval(() => {
           this.handleDeletePerson();
           this.adoptDog();
-        }, 1000);
+        }, 5000);
       }
     }
     if (this.state.submittedName === this.state.people[0]) {
@@ -85,7 +83,7 @@ export default class Adoption extends React.Component {
   }
 
   adoptDog() {
-    fetch(`http://localhost:8000/api/pets/dogs`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/dogs`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -101,7 +99,7 @@ export default class Adoption extends React.Component {
     this.setState({ animal: this.state.adoptDog.name })
     console.log(this.state.adoptDog.name)
     //then make fetch.. again is bad but too bad
-    fetch(`http://localhost:8000/api/pets/dogs`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/dogs`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +114,7 @@ export default class Adoption extends React.Component {
 
 
   adoptCat() {
-    fetch(`http://localhost:8000/api/pets/cats`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/cats`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -130,7 +128,7 @@ export default class Adoption extends React.Component {
   adoptCat2() {
     //again this is NOT best practice but we are out of time so too bad!
     this.setState({ animal: this.state.adoptCat.name })
-    fetch(`http://localhost:8000/api/pets/cats`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/pets/cats`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -151,7 +149,7 @@ export default class Adoption extends React.Component {
     return <p>There is no one else in line!</p>
   }
   handleAddPerson = (person) => {
-    fetch('http://localhost:8000/api/people', {
+    fetch('https://petful-server-prod.herokuapp.com/api/people', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: person })
@@ -171,7 +169,7 @@ export default class Adoption extends React.Component {
   }
 
   handleGetPeople() {
-    fetch(`http://localhost:8000/api/people`)
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -189,7 +187,7 @@ export default class Adoption extends React.Component {
   }
 
   handleDeletePerson() {
-    fetch(`http://localhost:8000/api/people`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })

@@ -1,6 +1,5 @@
 import React from 'react';
 import PeopleItem from './PeopleItem';
-import Loading from './loading'
 export default class People extends React.Component {
   state = {
     people: [],
@@ -14,7 +13,7 @@ export default class People extends React.Component {
   }
 
   handleGetPeople() {
-    fetch(`http://localhost:8000/api/people`)
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -34,7 +33,7 @@ export default class People extends React.Component {
   }
 
   handleAddPerson(ev, name) {
-    fetch(`http://localhost:8000/api/people`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name })
@@ -45,7 +44,7 @@ export default class People extends React.Component {
     this.handleGetPeople()
   }
   handleAddPerson2(name) {
-    fetch(`http://localhost:8000/api/people`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name })
@@ -56,7 +55,7 @@ export default class People extends React.Component {
     this.handleGetPeople()
   }
   handleDeletePerson() {
-    fetch(`http://localhost:8000/api/people`, {
+    fetch(`https://petful-server-prod.herokuapp.com/api/people`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })

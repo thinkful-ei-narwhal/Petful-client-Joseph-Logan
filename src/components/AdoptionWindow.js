@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import People from './People';
 import Loading from './loading';
-import PeopleItem from './PeopleItem';
+
 export default class AdoptionWindow extends Component {
 
   render() {
@@ -11,7 +11,7 @@ export default class AdoptionWindow extends Component {
       <section className="adoptionPage">
         <div className="adoptionWindow-container">
           <div className="adoptionWindow">
-            <section>
+            <section className="adopt-animal">
               <ul className="adoptThis">
                 <li>name: {this.props.adoptCat.name}</li>
                 <li>Age:{this.props.adoptCat.age} </li>
@@ -27,7 +27,7 @@ export default class AdoptionWindow extends Component {
 
             </section>
 
-            <section>
+            <section className="adopt-animal">
               <ul className="adoptThis">
                 <li>name: {this.props.adoptDog.name}</li>
                 <li>Age:{this.props.adoptDog.age} </li>
@@ -49,6 +49,7 @@ export default class AdoptionWindow extends Component {
         </div >
         <div className="people-container">
           <div className="people-list">
+            <h2>List of Adoptors</h2>
             {this.generatePeopleList()}
           </div>
 

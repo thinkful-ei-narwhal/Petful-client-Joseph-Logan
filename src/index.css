@@ -23,6 +23,7 @@ h3,
 h4 {
   color: magenta;
 }
+
 .adoptionWindow {
   display: flex;
   flex-direction: row;
@@ -30,7 +31,13 @@ h4 {
   align-items: center;
   justify-content: center;
   border: 2px solid green;
-  margin-right: 30%;
+}
+
+.adopt-animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .adoptThis {
@@ -45,22 +52,50 @@ h4 {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  margin-right: 30%;
 }
+
+.petsList {
+  width: 60%;
+}
+
 .petsList div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   border: 2px solid magenta;
-  margin: 25px;
-  padding: 20px;
+  margin: 5px;
+  padding: 10px;
 }
-@media screen and (max-width: 320px) {
-  .petColumns {
-    width: 300px;
+
+.petsList img {
+  width: 100%;
+}
+
+.people-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .adoptionWindow {
+    margin-right: 30%;
   }
+
+  .petColumns {
+    margin-right: 30%;
+  }
+
+  .people-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 30%;
+  }
+  
 }
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -99,9 +134,3 @@ h4 {
   color: darkslateblue;
 }
 
-.people-container {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 30%;
-}
