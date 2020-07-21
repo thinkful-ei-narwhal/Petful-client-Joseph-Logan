@@ -20,18 +20,18 @@ export default class Adoption extends Component {
       .catch(error => console.log(error))
   }
 
-  componentDidUpdate() {
-    fetch(`https://petful-server-prod.herokuapp.com/api/pets`)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data)
-        data.cats.shift()
-        data.dogs.shift()
-        this.setState({ pets: data, isLoading: false })
-      })
-      // .then(this.state.pets.cats.filter(cat => cat === this.state.pets.cats[0]))
-      .catch(error => console.log(error))
-  }
+  // componentDidUpdate() {
+  //   fetch(`https://petful-server-prod.herokuapp.com/api/pets`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data)
+  //       data.cats.shift()
+  //       data.dogs.shift()
+  //       this.setState({ pets: data, isLoading: false })
+  //     })
+  //     // .then(this.state.pets.cats.filter(cat => cat === this.state.pets.cats[0]))
+  //     .catch(error => console.log(error))
+  // }
   generateCatItems() {
     return this.state.pets.cats.map((cat) => {
       return <PetItem key={cat.name} age={cat.age} breed={cat.breed} description={cat.description} gender={cat.gender} imgUrl={cat.imageURL} name={cat.name} story={cat.story} />
